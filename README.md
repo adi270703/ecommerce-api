@@ -2,85 +2,59 @@
 
 
 
-**Production-ready REST API core built with Spring Boot and Java, exposing data-validated endpoints for inventory management. The system is designed around a strictly decoupled three-tier architecture (Web/Service/Data) to isolate concerns and enforce maintainability.**
+**A clean, structured Spring Boot REST API engine built from scratch using Java and managed via Apache Maven. This project is architected around a decoupled three-tier software pattern to separate web routing, core business processing, and relational data operations.**
 
 
 
-**## Architectural Architecture**
+**## Project Structural Architecture**
 
 
 
-**The application implements a standard enterprise layer separation layout:**
+**The application codebase is organized into modular packages to isolate specific system concerns:**
 
 
 
-**\* \*\*Controller Layer (`com.aditya.ecommerce.controller`)\*\*: Manages incoming REST network payloads, handles serialization boundaries via JSON/Java mappings, and sets safe Cross-Origin Resource Sharing (CORS) rules.**
+**\* \*\*com.aditya.ecommerce.model\*\*: Contains the core database entities mapped explicitly to the data persistence layer using Spring Data JPA annotations.**
 
-**\* \*\*Service Layer (`com.aditya.ecommerce.service`)\*\*: Encapsulates core transaction boundaries and internal domain logic operations separate from raw transport contexts.**
+**\* \*\*com.aditya.ecommerce.repository\*\*: Houses the data abstraction layer interfaces extending the JpaRepository API framework for direct data store operations.**
 
-**\* \*\*Repository Layer (`com.aditya.ecommerce.repository`)\*\*: Inherits JpaRepository APIs to run structural Object-Relational Mapping (ORM) against the data store infrastructure.**
+**\* \*\*com.aditya.ecommerce.service\*\*: Dedicated to encapsulating core application transactional routines and domain execution operations.**
 
-
-
-**## Data Schema \& Entities**
+**\* \*\*com.aditya.ecommerce.controller\*\*: Handles local server port request mappings, payload binding parsing, and system cross-origin access configuration parameters.**
 
 
 
-**The relational database layer builds out automatically from the underlying Hibernate entity context:**
+**## Core Infrastructure \& Stack**
 
 
 
-**\* `id` (Long, Primary Key, Identity Generation)**
+**\* \*\*Development Environment\*\*: Eclipse IDE**
 
-**\* `name` (String)**
+**\* \*\*Core Language Framework\*\*: Java / Spring Boot 3.x**
 
-**\* `description` (String)**
+**\* \*\*Data Management Layer\*\*: Hibernate Object-Relational Mapping (ORM)**
 
-**\* `price` (Double)**
-
-**\* `stockQuantity` (Integer)**
+**\* \*\*Build Architecture\*\*: Maven Dependency Management System**
 
 
 
-**## Interface Specifications**
+**## Eclipse Setup \& System Execution**
 
 
 
-**All routes bind to the `/api/v1/products` base URI context paths.**
+**1. Launch your local Eclipse IDE instance.**
+
+**2. Select \*\*File\*\* -> \*\*Import\*\* -> \*\*Existing Maven Projects\*\* and target the root directory path containing the `pom.xml` configuration file.**
+
+**3. Allow Maven to dynamically resolve project dependencies over the network.**
+
+**4. To initialize the local application context, run the core main class (`EcommerceApiApplication.java`) via \*\*Run As -> Java Application\*\*.**
+
+**5. The internal engine boots cleanly, initializing database resource schemas using the localized memory profiles stored in `src/main/resources/application.properties`.**
 
 
 
-**| Verb | Routing Context | Payload Schema | Success Status |**
+**## Main Maintainer**
 
-**| :--- | :--- | :--- | :--- |**
-
-**| `GET` | `/` | None | 200 OK (Array) |**
-
-**| `GET` | `/{id}` | None | 200 OK / 404 Not Found |**
-
-**| `POST` | `/` | JSON (Full Product attributes) | 200 OK (Created Object) |**
-
-**| `PUT` | `/{id}` | JSON (Updated attributes) | 200 OK / 404 Not Found |**
-
-**| `DELETE` | `/{id}` | None | 204 No Content |**
-
-
-
-**## Local Execution Environment**
-
-
-
-**1. Import the source tree root directly into Eclipse via File -> Import -> Existing Maven Projects.**
-
-**2. The runtime uses an internal configuration layout. The properties file `src/main/resources/application.properties` sets up the H2 engine configuration metrics locally.**
-
-**3. Locate the standard entry driver class (`EcommerceApiApplication.java`) containing the runtime execution hook.**
-
-**4. Execute via \*\*Run As -> Java Application\*\*. The embedded Tomcat stack boots automatically listening over local system interface port `8080`.**
-
-
-
-**## Author \& Engineering Ownership**
-
-**\* \*\*Aditya Sharma\*\* — Principal System Developer**
+**\* \*\*Aditya Sharma\*\* — System Engineer**
 
